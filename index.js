@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const svgexport = require('sv');
+const svgexport = require('svgexport');
 
 
 const makePromise = (fn) => {
@@ -43,14 +43,6 @@ const walk = function (dir) {
     });
 };
 
-const readFile = function (file) {
-  return makePromise(cb => fs.readFile(file, 'utf-8', cb))
-};
-
-const writeFile = function (file, content) {
-  return makePromise(cb => fs.writeFile(file, content, cb));
-};
-
 const worker = (files, cb) => {
   const quefiles = files.slice();
   return function exec() {
@@ -61,7 +53,7 @@ const worker = (files, cb) => {
 
     const file = quefiles.shift();
     const datafile = {
-      input: [file.file, "svg{background:white;}"],
+      input: [file.file, "1.5x", "svg{background:white;}"],
       output: `result\\${file.name}.jpg`,
     };
     console.log(`Working => ${file.name}`);
