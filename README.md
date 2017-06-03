@@ -6,7 +6,9 @@
 
 2. Copy svg to this folder
 
-3. Run:
+3. Create `result` folder
+
+4. Run:
 
 ```
 npm install 
