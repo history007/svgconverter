@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const svgexport = require('svgexport');
+const svgexport = require('sv');
 
 
 const makePromise = (fn) => {
